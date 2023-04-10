@@ -5,10 +5,6 @@ import java.util.Objects;
 public class ChatBox {
     String message;
     String name;
-//    public ChatBox(String message) {
-//        this.message = message;
-//    }
-
     public void sendMessageStaff(String name,String ph, String message){
         System.out.println(name+": "+message);
     }

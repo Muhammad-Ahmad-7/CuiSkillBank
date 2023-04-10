@@ -5,6 +5,7 @@ public class Member {
     String email;
     int id;
     String phoneNumber;
+    ChatBox chat = new ChatBox();
 
     String passWord;
     public Member(String name, String email, int id, String phoneNumber, String passWord) {

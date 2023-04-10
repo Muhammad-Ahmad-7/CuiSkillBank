@@ -186,5 +186,6 @@ public class Driver {
             System.out.println("Enter 1 for Exit");
             exit = input2.nextInt();
         } while (exit != 1);
+        System.out.println("Thanks For Using CUISkillBank");
     }
 }

@@ -3,9 +3,6 @@ package CuiSkillBank;
 public class Volunteer extends Member{
     SkillOffer[] skilloffer = new SkillOffer[4];
     SkillNeed[] skillneed = new SkillNeed[4];
-
-    ChatBox chat = new ChatBox();
-    //SkillNeed skillNeed;
     public Volunteer(String name, String email, int id, String phoneNumber, String passWord) {
         super(name, email, id, phoneNumber, passWord);
     }
