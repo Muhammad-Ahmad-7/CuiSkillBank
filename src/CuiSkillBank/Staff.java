@@ -6,6 +6,7 @@ public class Staff extends Member{
     String designation;
     Volunteer[] volunteer;
 
+    ChatBox chat = new ChatBox();
     public Staff(String name, String designation,String email, int id, String phoneNumber, Volunteer[] volunteer, String passWord) {
         super(name, email, id, phoneNumber, passWord);
         this.volunteer = volunteer;

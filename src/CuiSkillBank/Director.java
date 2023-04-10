@@ -28,7 +28,7 @@ public class Director {
     }
 
     public void generateReport(){
-        System.out.println("*******LIST OF REGISTERED VOLUNTEERS*******");
+        System.out.println("*******MONTHLY REPORT*******");
         for(Volunteer tempVolunteer: volunteer){
             if(tempVolunteer != null){
                 System.out.println("Name: " +  tempVolunteer.getName());

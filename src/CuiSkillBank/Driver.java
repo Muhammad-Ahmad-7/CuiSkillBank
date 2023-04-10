@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Driver {
     public static void main(String[] args) {
         int exit;
+        System.out.println("<-----WELCOME TO CUISKILLBANK----->");
         do {
             Volunteer[] volunteer = new Volunteer[4];
             volunteer[0] = new Volunteer("Ali", "ali@123gmail.com", 123, "0300000", "1234");
@@ -18,8 +19,8 @@ public class Driver {
             Director director = new Director(volunteer, "director123", "directorcui@gmail.com");
             Scanner input = new Scanner(System.in);
             int choice, skillChoice;
-            System.out.println("Enter 1 for Registration of New Volunteer\n2 for Login as Volunteer\n3 for Login as STAFF" +
-                    "\n4 for Generating Monthly Statistical Report");
+            System.out.println("Select one Option From the Menu\n1: For Registration of New Volunteer\n2: For Login as Volunteer\n3: For Login as STAFF" +
+                    "\n4: For Generating Monthly Statistical Report\n5: For Viewing Community activities");
             choice = input.nextInt();
             if (choice == 1) {
                 String name, email, phoneNumber, passWord;
@@ -87,8 +88,8 @@ public class Driver {
                             temp.displayVolunteer(temp);
                             count++;
                             int addSkillChoice;
-                            System.out.println("Enter 1 for Adding SkillOffer\n2 for Adding SkillNeed\n3 for Deleting any SkillOffer" +
-                                    "\n4 for Deleting SkillNeed");
+                            System.out.println("Enter\n1: For Adding SkillOffer\n2: For Adding SkillNeed\n3: For Deleting any SkillOffer" +
+                                    "\n4: For Deleting SkillNeed\n5: For Send Message");
                             addSkillChoice = input.nextInt();
                             if (addSkillChoice == 1) {
                                 temp.skilloffer[0].addSkill(temp);
@@ -121,6 +122,14 @@ public class Driver {
                                         }
                                     }
                                 }
+                            } else if(addSkillChoice == 5){
+                                System.out.println("CHAT BOX");
+                                input.nextLine();
+                                System.out.println("Enter Staff Phone Number: ");
+                                String ph = input.nextLine();
+                                System.out.println("Enter Message: ");
+                                String message = input.nextLine();
+                                temp.chat.sendMessageStaff(temp.getName(), ph,message);
                             } else {
                                 System.out.println("Enter Correct Choice");
                             }
@@ -140,10 +149,18 @@ public class Driver {
                 String passWord = input.nextLine();
                 if (Objects.equals(email, stf1.getEmail()) && Objects.equals(passWord, stf1.getPassWord())) {
                     stf1.displayStaff(stf1);
-                    System.out.println("Enter 1 for Matching Volunteer");
+                    System.out.println("Enter\n1: For Matching Volunteer\n2: For Sending message to Volunteer");
                     int subChoice = input.nextInt();
                     if (subChoice == 1) {
                         stf1.matchVolunteer();
+                    } else if(subChoice == 2){
+                        System.out.println("CHAT BOX");
+                        input.nextLine();
+                        System.out.println("Enter Phone Number: ");
+                        String ph = input.nextLine();
+                        System.out.println("Enter Your Message: ");
+                        String message = input.nextLine();
+                        stf1.chat.sendMessageVolunteer(volunteer, ph, message);
                     }
                 } else {
                     System.out.println("WRONG EMAIL AND PASSWORD");
@@ -159,6 +176,9 @@ public class Driver {
                 } else {
                     System.out.println("WRONG EMAIL PASSWORD");
                 }
+            } else if(choice == 5){
+                LocalCommunities community = new LocalCommunities();
+                community.getActivity();
             } else {
                 System.out.println("WRONG CHOICE");
             }
